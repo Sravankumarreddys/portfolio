@@ -3,85 +3,684 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sravan Kumar Reddy</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Sravan Kumar Reddy - IT Systems Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        header {
+            background: white;
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #2c3e50;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .hero {
+            background: white;
+            padding: 4rem 0;
+            margin-top: 2rem;
+        }
+
+        .hero-content {
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-title {
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-contact {
+            margin-bottom: 2rem;
+        }
+
+        .hero-contact a {
+            color: #3498db;
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: color 0.3s;
+        }
+
+        .hero-contact a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        section {
+            background: white;
+            padding: 3rem 0;
+            margin-top: 2rem;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 1rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .about-text p {
+            color: #555;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .stat-box {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid #3498db;
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #3498db;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .experience-item {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .experience-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .experience-date {
+            color: #3498db;
+            font-weight: 500;
+        }
+
+        .experience-company {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .experience-list {
+            list-style: none;
+            margin-left: 1rem;
+        }
+
+        .experience-list li {
+            color: #555;
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .experience-list li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-box {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-top: 3px solid #3498db;
+        }
+
+        .skill-box h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+        }
+
+        .skill-tag {
+            background: white;
+            color: #3498db;
+            padding: 0.4rem 0.9rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            border: 1px solid #3498db;
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: #3498db;
+            color: white;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .project-emoji {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-desc {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .project-tag {
+            background: #3498db;
+            color: white;
+            padding: 0.3rem 0.7rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+
+        .contact-section {
+            text-align: center;
+            background: #f8f9fa;
+            padding: 3rem;
+            border-radius: 8px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            text-align: center;
+        }
+
+        .contact-label {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-link {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .contact-link:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            color: #3498db;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+            border: 2px solid #3498db;
+        }
+
+        .social-link:hover {
+            background: #3498db;
+            color: white;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-contact a {
+                margin: 0.5rem;
+                display: inline-block;
+            }
+
+            .contact-info {
+                gap: 1rem;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
-        <nav>
+        <nav class="container">
+            <div class="logo">SKR</div>
             <ul>
+                <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#education">Education</a></li>
             </ul>
         </nav>
-        <h1>My Portfolio</h1>
     </header>
 
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Sravan Kumar Reddy</h1>
+                <p class="hero-title">IT Systems Engineer | Identity & Access Management</p>
+                <div class="hero-contact">
+                    <a href="tel:+18164569425">📞 +1 (816) 456-9425</a>
+                    <a href="mailto:sravansankalamaddi@gmail.com">📧 sravansankalamaddi@gmail.com</a>
+                    <a href="https://sravankumarreddy.online" target="_blank">🌐 sravankumarreddy.online</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="about">
-        <h2>About Me</h2>
-        <p>Software Engineer with 2+ years of professional experience in Full stack, Software and web application development, adept at crafting intricate code using diverse technologies including Java, JavaScript, HTML, CSS, and Bootstrap, and profi ciently deploying them to production environments. Experienced in all Software Development Life Cycle (SDLC) stages and Agile methodologies. Have strong analytical and problem-solving skills and a deep understanding of algorithms, data structures, and design patterns.</p>
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>Results-driven IT Systems Engineer with 3+ years of specialized experience in Identity & Access Management, Windows Server Administration, and enterprise infrastructure.</p>
+                    <p>I specialize in designing and implementing secure identity solutions including SSO, MFA, OAuth 2.0, and SAML protocols in hybrid environments using Microsoft Entra ID and Active Directory.</p>
+                    <p>Currently at Integrated Proteins, I manage enterprise systems, automate identity workflows using Python and PowerShell, and support critical infrastructure including Proxmox virtualization, Fortinet firewalls, and data pipelines to Snowflake.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-box">
+                        <div class="stat-number">3+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Technologies</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Key Projects</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">Master's</div>
+                        <div class="stat-label">Computer Science</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2>Professional Experience</h2>
+            <div id="experienceTimeline">
+                <!-- Experience will be inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid" id="skillsSection">
+                <!-- Skills will be inserted here -->
+            </div>
+        </div>
     </section>
 
     <section id="projects">
-        <h2>Projects</h2>
-        <div class="project">
-            <h3>CITI OASIS Banking application</h3>
-            <p>Enhanced system functionality by developing {12} REST API endpoints for data exchange in JSON/XML formats.
-              Implemented numerous new features and functionalities across both the frontend and backend of an existing banking application to meet client requirements.
-              Worked as a core member in browser migration of the application to work on an edge browser without compatibility issues.
-              Fixed vulnerabilities raised from black duck scan of a banking application.
-              Guided new recruits in the team with software installations (CMP) and setting up work environment.
-              Managed team by allocating tasks and helping them resolve issues with proper guidance during a browser migration project.
-              Profi cient in developing Monolithic Applications using Java Servlets, java server pages (JSP), HTML, CSS & and Bootstrap.</p>
+        <div class="container">
+            <h2>Key Projects & Achievements</h2>
+            <div class="projects-grid" id="projectsGrid">
+                <!-- Projects will be inserted here -->
+            </div>
         </div>
-        <div class="project">
-            <h3>Event management application</h3>
-            <p>Developed an event management application aimed at fostering collaboration among stakeholders in the event planning industry.
-              Utilized Java, HTML, CSS, Bootstrap, JavaScript, and SQL.Employed the Spring Boot framework for effi cient development.
-              Designed the application to serve as a centralized platform for communication and coordination among event planners, vendors, and other involved parties.
-              Implemented features to streamline event organization processes, such as scheduling, task management, and resource allocation.
-              Ensured user-friendly interface and seamless navigation through intuitive design principles and responsive web development techniques.</p>
-        </div>
-        <!-- Add more projects as needed -->
-
-    </section>
-    <section id="experience">
-      <h2>Experience</h2>
-      <div>IT Technician at Integrated Protien from June-2024 to Present</div>
-      <div>Engineer Technology at Virtusa from Oct-2020 to oct-2022</div>
-      <div>Intern Software at Z-Soft technologies from Apr-2019 to June-2019</div>
-
-    </section>
-
-    <section id="education">
-      <h2>Education</h2>
-      <div>Masters in computer science from University Of Missouri Kansas City(UMKC) -> (Jan-2023 to May-2024)</div>
-      <div>Bachelors in computer science from GITAM -> (Jun-2016 to May-2020) </div>
-    
-
     </section>
 
     <section id="contact">
-        <h2>Contact</h2>
-        <form action="#">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
-            
-            <button type="submit">Send</button>
-        </form>
+        <div class="container">
+            <div class="contact-section">
+                <h2 style="border: none; text-align: center;">Get In Touch</h2>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-label">Phone</div>
+                        <a href="tel:+18164569425" class="contact-link">+1 (816) 456-9425</a>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-label">Email</div>
+                        <a href="mailto:sravansankalamaddi@gmail.com" class="contact-link">sravansankalamaddi@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-label">Website</div>
+                        <a href="https://sravankumarreddy.online" class="contact-link" target="_blank">sravankumarreddy.online</a>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/sravan-kumar-reddy-sankalamaddi" class="social-link" target="_blank">💼</a>
+                    <a href="https://sravankumarreddy.online" class="social-link" target="_blank">🌐</a>
+                    <a href="mailto:sravansankalamaddi@gmail.com" class="social-link">📧</a>
+                </div>
+            </div>
+        </div>
     </section>
 
     <footer>
-        <p>&copy; 2024 My Portfolio</p>
+        <p>&copy; 2024 Sravan Kumar Reddy. All rights reserved.</p>
     </footer>
+
+    <script>
+        const experience = [
+            {
+                title: "IT Systems Engineer",
+                company: "Integrated Proteins",
+                location: "Kansas City, MO",
+                date: "July 2024 – Present",
+                highlights: [
+                    "Administer and secure Microsoft 365 in hybrid Active Directory and Microsoft Entra ID environments",
+                    "Design and implement SAML-based SSO, MFA, and identity access policies aligned with organizational security standards",
+                    "Support IAM services including user lifecycle management, RBAC, OAuth 2.0 integrations, and conditional access",
+                    "Develop Python and PowerShell automation scripts leveraging Microsoft Graph API and REST APIs",
+                    "Manage Proxmox KVM virtualization, HP Aruba switches, and Fortinet firewalls",
+                    "Design and maintain data pipelines from SQL Server to Snowflake for analytics"
+                ]
+            },
+            {
+                title: "Engineer Technology",
+                company: "Virtusa Consulting Services",
+                location: "Hyderabad, India",
+                date: "October 2020 – October 2022",
+                highlights: [
+                    "Worked on Citi Bank's internal Collateral Management Application supporting enterprise financial operations",
+                    "Designed, developed, and maintained RESTful API endpoints using Java for secure data exchange",
+                    "Participated in application modernization initiatives improving security and compatibility",
+                    "Supported secure application workflows following identity and access control best practices",
+                    "Worked in structured SDLC environment with version control, code reviews, and documentation"
+                ]
+            }
+        ];
+
+        const skills = [
+            {
+                category: "Identity & Access Management",
+                items: ["Microsoft Entra ID", "Active Directory", "SSO", "MFA", "OAuth 2.0", "OIDC", "SAML", "RBAC"]
+            },
+            {
+                category: "Windows Systems Administration",
+                items: ["Windows Server", "Active Directory", "DNS", "DHCP", "Group Policy", "System Monitoring", "Patching"]
+            },
+            {
+                category: "Automation & Scripting",
+                items: ["Python", "PowerShell", "Microsoft Graph API", "REST APIs", "Workflow Automation"]
+            },
+            {
+                category: "Cloud & Infrastructure",
+                items: ["Microsoft Azure", "AWS", "Proxmox KVM", "Hybrid Environments", "Virtualization"]
+            },
+            {
+                category: "Networking & Infrastructure",
+                items: ["TCP/IP", "DNS", "DHCP", "VLANs", "Firewalls", "Network Segmentation"]
+            },
+            {
+                category: "Enterprise Tools & Platforms",
+                items: ["Microsoft 365", "NinjaOne", "JAMF", "RingCentral", "Nextiva", "SQL Server", "Snowflake", "Power BI"]
+            }
+        ];
+
+        const projects = [
+            {
+                title: "Multi-API Automation Framework",
+                desc: "Integrated multiple APIs (Microsoft Graph, RingCentral, REST APIs) into custom Python and PowerShell automation scripts for identity workflows",
+                tags: ["Python", "PowerShell", "Microsoft Graph", "RingCentral"],
+                emoji: "🔗"
+            },
+            {
+                title: "Web Development Experience",
+                desc: "Worked on a collateral management application of Citi bank and added new featuresa and API end points based on the customers requirement",
+                tags: ["Java", "Backend", "Web Development"],
+                emoji: "☁️"
+            },
+            {
+                title: "Data Pipeline Implementation",
+                desc: "Designed and maintained secure data pipelines from SQL Server to Snowflake for analytics",
+                tags: ["SQL Server", "Snowflake", "Power BI"],
+                emoji: "📊"
+            },
+            {
+                title: "Infrastructure Virtualization",
+                desc: "Managed Proxmox KVM hypervisor with multiple Windows and Linux server deployments",
+                tags: ["Proxmox", "KVM", "Virtualization"],
+                emoji: "🖥️"
+            },
+            {
+                title: "ERP-to-NetSuite Integration",
+                desc: "Developed custom integration pipeline automating data ingestion for accounting team",
+                tags: ["APIs", "ERP", "NetSuite"],
+                emoji: "🔌"
+            },
+            {
+                title: "IAM Automation Framework",
+                desc: "Developed comprehensive Python and PowerShell automation for identity lifecycle management",
+                tags: ["Python", "PowerShell", "Identity Management"],
+                emoji: "🔐"
+            }
+        ];
+
+        // Render Experience
+        function renderExperience() {
+            const timeline = document.getElementById('experienceTimeline');
+            timeline.innerHTML = experience.map(exp => `
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="experience-title">${exp.title}</div>
+                        <div class="experience-date">${exp.date}</div>
+                    </div>
+                    <div class="experience-company">${exp.company} • ${exp.location}</div>
+                    <ul class="experience-list">
+                        ${exp.highlights.map(h => `<li>${h}</li>`).join('')}
+                    </ul>
+                </div>
+            `).join('');
+        }
+
+        // Render Skills
+        function renderSkills() {
+            const section = document.getElementById('skillsSection');
+            section.innerHTML = skills.map(skill => `
+                <div class="skill-box">
+                    <h3>${skill.category}</h3>
+                    <div class="skill-list">
+                        ${skill.items.map(item => `<span class="skill-tag">${item}</span>`).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Render Projects
+        function renderProjects() {
+            const grid = document.getElementById('projectsGrid');
+            grid.innerHTML = projects.map(project => `
+                <div class="project-card">
+                    <div class="project-emoji">${project.emoji}</div>
+                    <div class="project-title">${project.title}</div>
+                    <div class="project-desc">${project.desc}</div>
+                    <div class="project-tags">
+                        ${project.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Initialize
+        window.addEventListener('load', () => {
+            renderExperience();
+            renderSkills();
+            renderProjects();
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const target = e.target.getAttribute('href');
+                document.querySelector(target).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
 </body>
 </html>
